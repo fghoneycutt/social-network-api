@@ -56,6 +56,8 @@ const userController = {
             res.json(dbUserData);
           })
           .catch((err) => res.status(400).json(err));
-    }
+    },
+    //TODO: POST to add a new friend to a user's friend list
+    //TODO: DELETE to remove a friend from a user's friend list
 }
 module.exports = userController;
