@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model } = require('mongoose');
 const validator = require("validator");
 
 const UserSchema = new Schema(
@@ -23,7 +23,7 @@ const UserSchema = new Schema(
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Thoughts",
+        ref: "Thought",
       },
     ],
     friends: [
@@ -44,13 +44,8 @@ const UserSchema = new Schema(
 
 //TODO: Create a friendCount virtual that retrieves the length of the user's friends array field on query.
 UserSchema.virtual('friendCount').get(function () {
-  return this.friends.reduce(
-    //idk man, check Pizza.js and the module
-  //idk if this is correct, almost entirely copied from Pizza.js
-    (total, friend) => total + friend.replies.length + 1,
-    0
-  );
-})
+  return this.friends.length;
+});
 
 const User = model("User", UserSchema);
 

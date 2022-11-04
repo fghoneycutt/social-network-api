@@ -19,7 +19,7 @@
   "homepage": "https://github.com/fghoneycutt/social-network-api#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "mongoose": "^6.6.4",
+    "mongoose": "^6.7.1",
     "validator": "^13.7.0"
   }
 }
