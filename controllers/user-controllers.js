@@ -57,11 +57,10 @@ const userController = {
           })
           .catch((err) => res.status(400).json(err));
   },
-  //I do not know if the following two methods are correct
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
-      { $push: { friend: params.friendId } },
+      { $push: { friends: params.friendId } },
       { new: true }
     )
       .then((dbUserData) => {
