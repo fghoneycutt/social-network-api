@@ -58,6 +58,7 @@ const userController = {
           .catch((err) => res.status(400).json(err));
   },
   addFriend({ params }, res) {
+    console.log("reached")
     User.findOneAndUpdate(
       { _id: params.userId },
       { $push: { friends: params.friendId } },
@@ -73,6 +74,7 @@ const userController = {
       .catch((err) => res.status(400).json(err));
   },
   deleteFriend({ params, body }, res) {
+    console.log("reached")
     User.findOneAndUpdate(
       { _id: params.userId },
       { $pull: { friends: { friendId: params.userId } } },
